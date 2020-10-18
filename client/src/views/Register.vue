@@ -72,9 +72,10 @@ export default {
       ).catch(error => {
         if (error.response) {
           this.message = error.response.data.message
+        } else {
+          this.message = 'Your request could not be prosed at this time'
+          console.log(error.toString())
         }
-        this.message = 'Your request could not be prosed at this time'
-        console.log(error.toString())
       })
     }
   }
