@@ -3,19 +3,19 @@
       <h2>Post Page</h2>
       <hr/>
       <b-tabs class="tabs-styling" v-if="loggedIn" content-class="mt-3">
-        <b-tab :title-link-class="'tabText'" @click="getAllPost" title="Posts" active>
+        <b-tab :title-link-class="'tab-text'" @click="getAllPost" title="Posts" active>
           <b-card-text v-if="message">{{message}}</b-card-text>
           <b-container class="post-styling" v-for="post in posts" :key="post._id">
             <SinglePost :post="post"></SinglePost>
             <b-button class="button-styling" v-if="currentUser(post)" @click="deletePost(post)">Delete</b-button>
           </b-container>
         </b-tab>
-        <b-tab :title-link-class="'tabText'" class="tabsColor" title="Create" @click="clearData">
+        <b-tab :title-link-class="'tab-text'" class="tabsColor" title="Create" @click="clearData">
           <b-container v-if="loggedIn">
             <CreatePostForm ref="createPost" @update="getAllPost"></CreatePostForm>
           </b-container>
         </b-tab>
-        <b-tab :title-link-class="'tabText'" @click="loadUserPost" title="Edit">
+        <b-tab :title-link-class="'tab-text'" @click="loadUserPost" title="Edit">
           <UpdatePost ref="updatePost"></UpdatePost>
         </b-tab>
       </b-tabs>

@@ -3,7 +3,7 @@
       <h2>My Trips</h2>
       <hr/>
       <b-tabs class="tabs-styling" content-class="mt-3">
-        <b-tab :title-link-class="'tabText'" @click="reloadData()" title="My Trips" active>
+        <b-tab :title-link-class="'tab-text'" @click="reloadData()" title="My Trips" active>
           <b-card-text v-if="errorMessage">{{errorMessage}}</b-card-text>
           <b-card-text v-if="message">{{message}}</b-card-text>
           <b-container class="trip-styling" v-for="trip in trips" :key="trip._id">
@@ -13,12 +13,12 @@
           <hr/>
           <b-button class="button-styling" v-if="currentUser" @click="deleteAllTrips()">Delete All Trips</b-button>
         </b-tab>
-        <b-tab :title-link-class="'tabText'" title="Create" @click="clearMessage">
+        <b-tab :title-link-class="'tab-text'" title="Create" @click="clearMessage">
           <b-container>
             <CreateTripForm ref="createTripTab"></CreateTripForm>
           </b-container>
         </b-tab>
-        <b-tab :title-link-class="'tabText'" title="Add Places" @click="clearMessagePlaceTab">
+        <b-tab :title-link-class="'tab-text'" title="Add Places" @click="clearMessagePlaceTab">
           <AddPlaceToTripForm ref="addPlaceTab" :trips="trips"></AddPlaceToTripForm>
         </b-tab>
       </b-tabs>
